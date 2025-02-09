@@ -3,7 +3,7 @@
   import type { Quiz } from "$lib/types/quiz"
   import { QuizShell } from "$lib/components/quiz"
   import { quizSession } from "$lib/stores/quizSessionStore"
-  import { extractedQuiz } from "./output"
+  import { extractedQuiz } from "./test-quiz/output"
 
   const mockQuiz = extractedQuiz
   // Mock data for demonstration
