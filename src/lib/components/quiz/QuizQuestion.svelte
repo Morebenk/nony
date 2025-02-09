@@ -1,8 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte"
   import { fade } from "svelte/transition"
-  import type { Question, QuizAnswer } from "$lib/types/quiz"
-  import type { RuntimeQuizAnswer } from "$lib/types/runtime-quiz"
+  import type { Question, QuizAnswer, RuntimeQuizAnswer } from "$lib/types/quiz"
   import { currentAnswer } from "$lib/stores/quizSessionStore"
   import QuestionHeader from "./question-parts/QuestionHeader.svelte"
   import QuestionImage from "./question-parts/QuestionImage.svelte"
@@ -80,8 +79,8 @@
         {isSelected}
         showFeedback={showInstantFeedback}
         isDisabled={!!$currentAnswer?.choice_id}
-        isCorrect={isSelected && isRuntimeAnswer($currentAnswer)
-          ? $currentAnswer.is_correct
+        isCorrect={showInstantFeedback && $currentAnswer?.choice_id 
+          ? choice.is_correct 
           : undefined}
         on:select={() => handleChoice(choice.id)}
       />

@@ -25,3 +25,33 @@ export interface Choice {
   question_id: string;
   is_correct?: boolean;
 }
+
+export interface QuizProgress {
+  total: number;
+  answered: number;
+  remaining: number;
+  percentage: number;
+  score: number;
+}
+
+export interface QuizSession {
+  quiz_id: string;
+  quiz: Quiz;
+  answers: Record<string, RuntimeQuizAnswer>;
+  current_question_id: string | null;
+  score: number;
+  started_at: string;
+  completed_at: string | null;
+}
+
+export type QuizAnswer = RuntimeQuizAnswer;
+
+export interface RuntimeQuizAnswer {
+  attempt_id: string;
+  question_id: string;
+  choice_id: string;
+  status: "answered" | "skipped";
+  time_spent: number;
+  is_correct?: boolean;
+  bookmarked: boolean;
+}
