@@ -20,10 +20,10 @@
     "group w-full p-4 text-left rounded-lg transition-all duration-200",
     "transform hover:scale-[1.01] focus:scale-[1.01]",
     "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
-    isSelected && showFeedback && isCorrect ? "bg-success/20" : "",
+    showFeedback && isCorrect ? "bg-success/20" : "",
     isSelected && showFeedback && isCorrect === false ? "bg-error/20" : "",
     isSelected && !showFeedback ? "bg-primary text-primary-content" : "",
-    !isSelected ? "bg-base-200 hover:bg-base-300" : "",
+    !isSelected && !showFeedback ? "bg-base-200 hover:bg-base-300" : "",
   ]
     .filter(Boolean)
     .join(" ")
@@ -31,7 +31,7 @@
   $: numberClasses = [
     "flex-none flex items-center justify-center w-8 h-8",
     "rounded-full border-2 text-sm font-medium",
-    isSelected && showFeedback && isCorrect
+    showFeedback && isCorrect
       ? "border-success bg-success text-success-content"
       : "",
     isSelected && showFeedback && isCorrect === false
@@ -40,7 +40,7 @@
     isSelected && !showFeedback
       ? "border-primary-content bg-primary-content text-primary"
       : "",
-    !isSelected ? "border-current group-hover:border-primary" : "",
+    !isSelected && !showFeedback ? "border-current group-hover:border-primary" : "",
   ]
     .filter(Boolean)
     .join(" ")
